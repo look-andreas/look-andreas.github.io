@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andreas | Personal Website</title>
+    <title>Andreas Look | Personal Website</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -27,7 +27,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             padding: 80px 24px;
         }
@@ -43,9 +43,10 @@
         .profile-img {
             width: 160px;
             height: 160px;
-            border-radius: 50%; /* Circular like Palmieri's */
+            border-radius: 50%;
             object-fit: cover;
             border: 1px solid var(--border);
+            background-color: #f9f9f9;
         }
 
         .intro h1 {
@@ -61,17 +62,16 @@
             margin-bottom: 20px;
         }
 
-        /* SOCIAL LINKS */
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             flex-wrap: wrap;
         }
 
         .social-links a {
             text-decoration: none;
             color: var(--text);
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             transition: color 0.2s;
         }
 
@@ -83,20 +83,49 @@
         h2 {
             font-size: 1.5rem;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             border-bottom: 1px solid #f2f2f2;
             padding-bottom: 8px;
         }
 
-        .item { margin-bottom: 24px; }
-        .item-title { font-weight: 500; display: block; color: var(--text); text-decoration: none; }
-        .item-meta { font-size: 0.9rem; color: var(--secondary); }
-        .item-links { font-size: 0.85rem; margin-top: 5px; }
-        .item-links a { color: var(--accent); text-decoration: none; margin-right: 12px; }
+        /* NEW PUBLICATION ROW STYLING */
+        .pub-row {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 32px;
+            align-items: flex-start;
+        }
+
+        .pub-preview {
+            width: 180px;
+            height: 110px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            flex-shrink: 0;
+            background-color: #fcfcfc;
+        }
+
+        .pub-content {
+            flex: 1;
+        }
+
+        .item-title { font-weight: 600; display: block; color: var(--text); text-decoration: none; margin-bottom: 4px; }
+        .item-meta { font-size: 0.9rem; color: var(--secondary); display: block; line-height: 1.4; }
+        .item-links { font-size: 0.85rem; margin-top: 8px; }
+        .item-links a { 
+            color: var(--accent); 
+            text-decoration: none; 
+            margin-right: 15px; 
+            font-weight: 500;
+        }
+        .item-links a:hover { text-decoration: underline; }
 
         /* RESPONSIVE */
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             header { flex-direction: column; text-align: center; gap: 20px; }
+            .pub-row { flex-direction: column; gap: 12px; }
+            .pub-preview { width: 100%; height: auto; max-width: 300px; }
             .container { padding-top: 40px; }
         }
     </style>
@@ -105,7 +134,7 @@
 
 <div class="container">
     <header>
-        <img src="profile.jpg" alt="Andreas" class="profile-img">
+        <img src="images/profile.jpg" alt="Andreas Look" onerror="this.src='https://ui-avatars.com/api/?name=Andreas+Look&size=160&background=f0f0f0'" class="profile-img">
         <div class="intro">
             <h1>Andreas Look</h1>
             <p>Professor @ Coburg University of Applied Sciences</p>
@@ -113,12 +142,13 @@
             <div class="social-links">
                 <a href="mailto:andreas.look@hs-coburg.de" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://scholar.google.com/citations?user=3A6LKtAAAAAJ&hl=de" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://github.com/look-andreas" title="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </header>
 
     <section id="about">
-    <h2>About</h2>
+        <h2>About</h2>
         <p>
             I am a <strong>Professor for Autonomous Systems</strong> at <strong>Coburg University of Applied Sciences</strong>. 
             My work sits at the intersection of Artificial Intelligence and Robotics, with a dedicated 
@@ -140,54 +170,61 @@
         </p>
     </section>
 
-    <section id="news">
-        <h2>News</h2>
-        <div class="item">
-            <span class="item-meta">March 2026</span> — Launched my new personal website.
-        </div>
-    </section>
-
     <section id="publications">
         <h2>Selected Publications</h2>
         
-        <div class="item">
-            <span class="item-title">Don’t double it: Efficient Agent Prediction in Occlusions</span>
-            <span class="item-meta">A. Rothenhäusler, M. Mazzola, A. Look, R. Rajan, J, Bödecker</span><br>
-            <span class="item-meta">Preprint 2026</span>
-            <div class="item-links">
-                <a href="https://arxiv.org/abs/2601.21504">[PDF]</a>
+        <div class="pub-row">
+            <img src="images/occlusion.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=Prediction'" class="pub-preview">
+            <div class="pub-content">
+                <span class="item-title">Don’t double it: Efficient Agent Prediction in Occlusions</span>
+                <span class="item-meta">A. Rothenhäusler, M. Mazzola, <strong>A. Look</strong>, R. Rajan, J. Bödecker</span>
+                <span class="item-meta">Preprint 2026</span>
+                <div class="item-links">
+                    <a href="https://arxiv.org/abs/2601.21504"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
             </div>
         </div>
-        <div class="item">
-            <span class="item-title">Stochasticity in Motion: An Information-Theoretic Approach to Trajectory Prediction</span>
-            <span class="item-meta">A. Distelzweig, A. Look, E. Kosman, F. Janjoš, J. Wagner, A. Valada</span><br>
-            <span class="item-meta">IROS 2025</span>
-            <div class="item-links">
-                <a href="https://arxiv.org/abs/2410.016284">[PDF]</a>
+
+        <div class="pub-row">
+            <img src="images/motion_stochasticity.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=Information+Theory'" class="pub-preview">
+            <div class="pub-content">
+                <span class="item-title">Stochasticity in Motion: An Information-Theoretic Approach to Trajectory Prediction</span>
+                <span class="item-meta">A. Distelzweig, <strong>A. Look</strong>, E. Kosman, F. Janjoš, J. Wagner, A. Valada</span>
+                <span class="item-meta">IROS 2025</span>
+                <div class="item-links">
+                    <a href="https://arxiv.org/abs/2410.016284"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
             </div>
         </div>
-         <div class="item">
-            <span class="item-title">Motion Forecasting via Model-Based Risk Minimization</span>
-            <span class="item-meta">A. Distelzweig, E. Kosman, A. Look, F. Janjoš, D. K. Manivannan, A. Valada</span><br>
-            <span class="item-meta">ICRA 2025</span>
-            <div class="item-links">
-                <a href="https://arxiv.org/abs/2409.10585">[PDF]</a>
+
+        <div class="pub-row">
+            <img src="images/motion_risk.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=Motion+Forecasting'" class="pub-preview">
+            <div class="pub-content">
+                <span class="item-title">Motion Forecasting via Model-Based Risk Minimization</span>
+                <span class="item-meta">A. Distelzweig, E. Kosman, <strong>A. Look</strong>, F. Janjoš, D. K. Manivannan, A. Valada</span>
+                <span class="item-meta">ICRA 2025</span>
+                <div class="item-links">
+                    <a href="https://arxiv.org/abs/2409.10585"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
             </div>
         </div>
-         <div class="item">
-            <span class="item-title">Can you text what is happening? Integrating pre-trained language
-encoders into trajectory prediction models for autonomous driving</span>
-            <span class="item-meta">A. Keysan, A. Look, E. Kosman, G. Gürsun, J. Wagner, Y. Yao, B. Rakitsch</span><br>
-            <span class="item-meta">IROS Agents4AD Workshop</span>
-            <div class="item-links">
-                <a href="https://arxiv.org/abs/2309.05282">[PDF]</a>
+
+        <div class="pub-row">
+            <img src="images/can_you_text.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=LLM+in+AD'" class="pub-preview">
+            <div class="pub-content">
+                <span class="item-title">Can you text what is happening? Integrating pre-trained language encoders into trajectory prediction models</span>
+                <span class="item-meta">A. Keysan, <strong>A. Look</strong>, E. Kosman, G. Gürsun, J. Wagner, Y. Yao, B. Rakitsch</span>
+                <span class="item-meta">IROS Agents4AD Workshop</span>
+                <div class="item-links">
+                    <a href="https://arxiv.org/abs/2309.05282"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
         <p style="text-align: center; color: var(--secondary); font-size: 0.8rem; margin-top: 100px;">
-            &copy; 2026 Andreas. Last updated: March 2026.
+            &copy; 2026 Andreas Look. Last updated: March 2026.
         </p>
     </footer>
 </div>
