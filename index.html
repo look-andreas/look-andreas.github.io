@@ -15,6 +15,7 @@
             --secondary: #86868b;
             --accent: #0066cc;
             --border: #d2d2d7;
+            --hover-bg: #f5f5f7;
         }
 
         body {
@@ -26,10 +27,40 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* 1. Sticky Navigation Bar */
+        nav {
+            position: sticky; 
+            top: 0; 
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+        }
+
+        .nav-content {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none; 
+            color: var(--secondary);
+            font-size: 0.95rem; 
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover { color: var(--text); }
+
         .container {
             max-width: 850px;
             margin: 0 auto;
-            padding: 80px 24px;
+            padding: 60px 24px 80px 24px;
         }
 
         /* HEADER / PROFILE SECTION */
@@ -51,7 +82,7 @@
 
         .intro h1 {
             font-size: 2.2rem;
-            margin: 0 0 10px 0;
+            margin: 0 0 8px 0;
             font-weight: 600;
             letter-spacing: -0.02em;
         }
@@ -60,6 +91,7 @@
             font-size: 1.1rem;
             color: var(--secondary);
             margin-bottom: 20px;
+            line-height: 1.4;
         }
 
         .social-links {
@@ -78,7 +110,7 @@
         .social-links a:hover { color: var(--accent); }
 
         /* CONTENT SECTIONS */
-        section { margin-bottom: 50px; }
+        section { margin-bottom: 60px; scroll-margin-top: 80px; } /* scroll-margin offsets the sticky nav */
 
         h2 {
             font-size: 1.5rem;
@@ -86,14 +118,41 @@
             margin-bottom: 25px;
             border-bottom: 1px solid #f2f2f2;
             padding-bottom: 8px;
+            letter-spacing: -0.01em;
         }
 
-        /* NEW PUBLICATION ROW STYLING */
+        /* 2. Modern Research Tags */
+        .tag-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+            margin-top: 20px; 
+        }
+        
+        .tag {
+            background: var(--hover-bg);
+            color: #444;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #eaeaea;
+        }
+
+        /* 3. PUBLICATION ROW WITH HOVER EFFECTS */
         .pub-row {
             display: flex;
             gap: 24px;
-            margin-bottom: 32px;
+            margin-bottom: 35px;
             align-items: flex-start;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background-color 0.2s, transform 0.2s;
+            margin-left: -10px; /* Offset padding so images align left */
+        }
+
+        .pub-row:hover {
+            background-color: var(--hover-bg);
         }
 
         .pub-preview {
@@ -104,13 +163,17 @@
             border: 1px solid var(--border);
             flex-shrink: 0;
             background-color: #fcfcfc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .pub-content {
-            flex: 1;
+        .pub-row:hover .pub-preview {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        .item-title { font-weight: 600; display: block; color: var(--text); text-decoration: none; margin-bottom: 4px; }
+        .pub-content { flex: 1; }
+
+        .item-title { font-weight: 600; display: block; color: var(--text); margin-bottom: 4px; }
         .item-meta { font-size: 0.9rem; color: var(--secondary); display: block; line-height: 1.4; }
         .item-links { font-size: 0.85rem; margin-top: 8px; }
         .item-links a { 
@@ -118,19 +181,29 @@
             text-decoration: none; 
             margin-right: 15px; 
             font-weight: 500;
+            transition: opacity 0.2s;
         }
-        .item-links a:hover { text-decoration: underline; }
+        .item-links a:hover { opacity: 0.7; }
 
         /* RESPONSIVE */
         @media (max-width: 650px) {
             header { flex-direction: column; text-align: center; gap: 20px; }
-            .pub-row { flex-direction: column; gap: 12px; }
+            .pub-row { flex-direction: column; gap: 12px; margin-left: 0; padding: 0; }
+            .pub-row:hover { background-color: transparent; } /* Disable background hover on mobile */
             .pub-preview { width: 100%; height: auto; max-width: 300px; }
-            .container { padding-top: 40px; }
+            .container { padding-top: 30px; }
         }
     </style>
 </head>
 <body>
+
+<nav>
+    <div class="nav-content">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="https://scholar.google.com/citations?user=3A6LKtAAAAAJ&hl=de" target="_blank">Google Scholar <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>
+    </div>
+</nav>
 
 <div class="container">
     <header>
@@ -155,18 +228,26 @@
         </p>
         <p>
             Before joining HS Coburg, I was a Research Scientist at the <strong>Bosch Center for Artificial Intelligence (BCAI)</strong>, 
-            where I worked on bringing advanced AI methods to automotive systems. My research interests include:
+            where I worked on bringing advanced AI methods to automotive systems.
         </p>
-        <ul style="column-count: 2; list-style-type: '→ '; padding-left: 10px;">
-            <li>Autonomous Driving</li>
-            <li>End-to-End (E2E) Learning</li>
-            <li>Prediction & Motion Planning</li>
-            <li>Deployment of AI on Real Hardware</li>
-        </ul>
-        <p>
+         <p style="margin-top: 20px;">
             My goal is to develop robust, interpretable algorithms that can navigate the complexities 
             of the physical world safely.
         </p>
+    </section>
+
+    <section id="interests">
+    <h2>Interests</h2>
+    <div class="tag-container">
+            <span class="tag">Autonomous Driving</span>
+            <span class="tag">Prediction & Motion Planning</span>
+            <span class="tag">Uncertainty Modeling</span>
+            <span class="tag">Bayesian Deep Learning</span>
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">End-to-End (E2E) Model</span>
+            <span class="tag">Robotics</span>
+            <span class="tag">Real-World Deployment</span>
+        </div>
     </section>
 
     <section id="publications">
