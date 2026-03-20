@@ -1,147 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andreas | Personal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2d3436;
-            --accent: #0984e3;
-            --text-light: #636e72;
-            --bg: #fdfdfd;
-        }
+<ul class="links">
+    <li><a href="mailto:your-email@example.com">📧 Email</a></li>
+    <li><a href="https://scholar.google.com/citations?user=YOUR_ID_HERE">🎓 Google Scholar</a></li>
+    <li><a href="https://github.com/look-andreas">🐙 GitHub</a></li>
+    <li><a href="#">📄 Curriculum Vitae</a></li>
+    <li><a href="#">🔗 LinkedIn</a></li>
+</ul>
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg);
-            color: var(--primary);
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 60px 20px;
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 50px;
-        }
-
-        /* Sidebar Styling */
-        .sidebar {
-            position: sticky;
-            top: 60px;
-            height: fit-content;
-        }
-
-        .profile-img {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: #eee; /* Placeholder color */
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        h1 { font-size: 1.8rem; margin-bottom: 10px; font-weight: 600; }
-        .bio-short { color: var(--text-light); font-size: 0.95rem; margin-bottom: 25px; }
-
-        .links { list-style: none; padding: 0; }
-        .links li { margin-bottom: 12px; }
-        .links a { 
-            text-decoration: none; 
-            color: var(--accent); 
-            font-weight: 500;
-            transition: opacity 0.2s;
-        }
-        .links a:hover { opacity: 0.7; }
-
-        /* Content Styling */
-        .main-content h2 {
-            font-size: 1.4rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 40px;
-        }
-
-        .news-item {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 15px;
-        }
-        .date { font-weight: 600; min-width: 100px; color: var(--text-light); }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container { grid-template-columns: 1fr; padding: 30px 20px; }
-            .sidebar { position: relative; top: 0; text-align: center; }
-            .profile-img { width: 150px; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <aside class="sidebar">
-        <img src="profile.jpg" alt="Andreas" class="profile-img">
-        <h1>Andreas</h1>
-        <p class="bio-short">
-            Aspiring Developer & Researcher <br>
-            Interest in AI, Data, and Web.
-        </p>
-        
-        <ul class="links">
-            <li><a href="mailto:your-email@example.com">📧 Email</a></li>
-            <li><a href="https://github.com/look-andreas">🐙 GitHub</a></li>
-            <li><a href="#">📄 Curriculum Vitae</a></li>
-            <li><a href="#">🔗 LinkedIn</a></li>
-        </ul>
-    </aside>
-
-    <main class="main-content">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                Hello! I am a student/professional based in [Your City]. My work focuses on 
-                [Your Main Interest], and I am currently exploring how [Technology/Field] 
-                can be used to solve [Problem].
-            </p>
-            <p>
-                This website serves as a portfolio of my projects and a place where I share 
-                updates on my research and professional journey.
-            </p>
-        </section>
-
-        <section id="news">
-            <h2>News</h2>
-            <div class="news-item">
-                <span class="date">Mar 2026</span>
-                <span>Launched my professional portfolio on GitHub Pages.</span>
-            </div>
-            <div class="news-item">
-                <span class="date">Feb 2026</span>
-                <span>Completed a project on [Your Project Name].</span>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Selected Projects</h2>
-            <p><strong>Project One:</strong> A brief description of what you built and the impact it had. <a href="#">[Code]</a></p>
-            <p><strong>Project Two:</strong> Another cool thing you've worked on recently. <a href="#">[Demo]</a></p>
-        </section>
-
-        <footer>
-            <p style="margin-top: 80px; font-size: 0.8rem; color: #ccc;">
-                &copy; 2026 Andreas. Built with clean HTML/CSS.
-            </p>
-        </footer>
-    </main>
-</div>
-
-</body>
-</html>
+<section id="research">
+    <h2>Research</h2>
+    <p>My research interests lie at the intersection of [Field A] and [Field B]. Specifically, I am interested in [Specific Topic].</p>
+    
+    <div class="project-item">
+        <p><strong>The Title of Your Best Paper</strong><br>
+        <em>Andreas</em>, Co-author Name, Another Author.<br>
+        Conference/Journal Name, 2026. <br>
+        <a href="#">[Paper]</a> <a href="#">[Code]</a> <a href="#">[BibTeX]</a></p>
+    </div>
+</section>
