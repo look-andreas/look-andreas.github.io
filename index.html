@@ -1,19 +1,165 @@
-<ul class="links">
-    <li><a href="mailto:your-email@example.com">📧 Email</a></li>
-    <li><a href="https://scholar.google.com/citations?user=YOUR_ID_HERE">🎓 Google Scholar</a></li>
-    <li><a href="https://github.com/look-andreas">🐙 GitHub</a></li>
-    <li><a href="#">📄 Curriculum Vitae</a></li>
-    <li><a href="#">🔗 LinkedIn</a></li>
-</ul>
-
-<section id="research">
-    <h2>Research</h2>
-    <p>My research interests lie at the intersection of [Field A] and [Field B]. Specifically, I am interested in [Specific Topic].</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andreas | Personal Website</title>
     
-    <div class="project-item">
-        <p><strong>The Title of Your Best Paper</strong><br>
-        <em>Andreas</em>, Co-author Name, Another Author.<br>
-        Conference/Journal Name, 2026. <br>
-        <a href="#">[Paper]</a> <a href="#">[Code]</a> <a href="#">[BibTeX]</a></p>
-    </div>
-</section>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1d1d1f;
+            --secondary: #86868b;
+            --accent: #0066cc;
+            --border: #d2d2d7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        /* HEADER / PROFILE SECTION */
+        header {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%; /* Circular like Palmieri's */
+            object-fit: cover;
+            border: 1px solid var(--border);
+        }
+
+        .intro h1 {
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .intro p {
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* SOCIAL LINKS */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover { color: var(--accent); }
+
+        /* CONTENT SECTIONS */
+        section { margin-bottom: 50px; }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f2f2f2;
+            padding-bottom: 8px;
+        }
+
+        .item { margin-bottom: 24px; }
+        .item-title { font-weight: 500; display: block; color: var(--text); text-decoration: none; }
+        .item-meta { font-size: 0.9rem; color: var(--secondary); }
+        .item-links { font-size: 0.85rem; margin-top: 5px; }
+        .item-links a { color: var(--accent); text-decoration: none; margin-right: 12px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            header { flex-direction: column; text-align: center; gap: 20px; }
+            .container { padding-top: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="profile.jpg" alt="Andreas" class="profile-img">
+        <div class="intro">
+            <h1>Andreas [Your Surname]</h1>
+            <p>PhD Student / Researcher in [Your Field] @ [University Name]</p>
+            
+            <div class="social-links">
+                <a href="mailto:your-email@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://scholar.google.com/citations?user=YOUR_ID" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://github.com/look-andreas" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/yourhandle" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" title="CV"><i class="fas fa-file-pdf"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>About</h2>
+        <p>
+            I am a researcher focused on [Topic A], [Topic B], and [Topic C]. 
+            My work aims to bridge the gap between [Current Method] and [Future Solution].
+            Previously, I was at [Old University/Company] and received my degree in [Subject].
+        </p>
+    </section>
+
+    <section id="news">
+        <h2>News</h2>
+        <div class="item">
+            <span class="item-meta">March 2026</span> — Launched my new personal website.
+        </div>
+        <div class="item">
+            <span class="item-meta">January 2026</span> — Paper accepted at [Major Conference Name]!
+        </div>
+    </section>
+
+    <section id="publications">
+        <h2>Selected Publications</h2>
+        
+        <div class="item">
+            <span class="item-title">Large-Scale Analysis of [Project Title]</span>
+            <span class="item-meta"><strong>Andreas</strong>, A. Smith, B. Doe.</span><br>
+            <span class="item-meta">Preprint 2026</span>
+            <div class="item-links">
+                <a href="#">[PDF]</a>
+                <a href="#">[Code]</a>
+                <a href="#">[BibTeX]</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p style="text-align: center; color: var(--secondary); font-size: 0.8rem; margin-top: 100px;">
+            &copy; 2026 Andreas. Last updated: March 2026.
+        </p>
+    </footer>
+</div>
+
+</body>
+</html>
