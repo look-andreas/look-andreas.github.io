@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Andreas Look | Personal Website</title>
-    
+    <title>Andreas Look | Professor for Autonomous Systems</title>
+    <meta name="description" content="Andreas Look – Professor for Autonomous Systems at Coburg University of Applied Sciences. Research in Reinforcement Learning, Trajectory Prediction, and Uncertainty Modeling.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Andreas Look | Professor for Autonomous Systems">
+    <meta property="og:description" content="Research in Reinforcement Learning, Trajectory Prediction, and Uncertainty Modeling for Autonomous Vehicles.">
+    <meta property="og:type" content="website">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -18,6 +24,8 @@
             --hover-bg: #f5f5f7;
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', -apple-system, sans-serif;
             background-color: var(--bg);
@@ -27,16 +35,16 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 1. Sticky Navigation Bar */
+        /* NAVIGATION */
         nav {
-            position: sticky; 
-            top: 0; 
+            position: sticky;
+            top: 0;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             z-index: 100;
             border-bottom: 1px solid var(--border);
-            padding: 16px 0;
+            padding: 14px 0;
         }
 
         .nav-content {
@@ -44,26 +52,60 @@
             margin: 0 auto;
             padding: 0 24px;
             display: flex;
-            gap: 25px;
+            align-items: center;
+            gap: 0;
         }
 
-        nav a {
-            text-decoration: none; 
+        .nav-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            margin-right: auto;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        nav a.nav-link {
+            text-decoration: none;
             color: var(--secondary);
-            font-size: 0.95rem; 
+            font-size: 0.9rem;
             font-weight: 500;
             transition: color 0.2s;
+            position: relative;
+            padding-bottom: 2px;
         }
 
-        nav a:hover { color: var(--text); }
+        nav a.nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.2s;
+            border-radius: 1px;
+        }
 
+        nav a.nav-link:hover { color: var(--text); }
+        nav a.nav-link.active { color: var(--text); }
+        nav a.nav-link.active::after { transform: scaleX(1); }
+
+        /* LAYOUT */
         .container {
             max-width: 850px;
             margin: 0 auto;
             padding: 60px 24px 80px 24px;
         }
 
-        /* HEADER / PROFILE SECTION */
+        /* HEADER */
         header {
             display: flex;
             align-items: center;
@@ -78,86 +120,88 @@
             object-fit: cover;
             border: 1px solid var(--border);
             background-color: #f9f9f9;
+            flex-shrink: 0;
         }
 
         .intro h1 {
             font-size: 2.2rem;
-            margin: 0 0 8px 0;
+            margin: 0 0 6px 0;
             font-weight: 600;
             letter-spacing: -0.02em;
         }
 
-        .intro p {
-            font-size: 1.1rem;
+        .intro .affiliation {
+            font-size: 1rem;
             color: var(--secondary);
-            margin-bottom: 20px;
+            margin: 0 0 18px 0;
             line-height: 1.4;
         }
 
         .social-links {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
+            align-items: center;
         }
 
         .social-links a {
             text-decoration: none;
-            color: var(--text);
-            font-size: 1.4rem;
+            color: var(--secondary);
+            font-size: 1.25rem;
             transition: color 0.2s;
+            display: flex;
+            align-items: center;
         }
 
         .social-links a:hover { color: var(--accent); }
 
-        /* CONTENT SECTIONS */
-        section { margin-bottom: 60px; scroll-margin-top: 80px; } /* scroll-margin offsets the sticky nav */
+        /* SECTIONS */
+        section { margin-bottom: 60px; scroll-margin-top: 70px; }
 
         h2 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 600;
-            margin-bottom: 25px;
-            border-bottom: 1px solid #f2f2f2;
-            padding-bottom: 8px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 10px;
             letter-spacing: -0.01em;
         }
 
-        /* 2. Modern Research Tags */
-        .tag-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 10px; 
-            margin-top: 20px; 
+        /* INTERESTS */
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
         }
-        
+
         .tag {
             background: var(--hover-bg);
             color: #444;
-            padding: 6px 14px;
+            padding: 5px 13px;
             border-radius: 20px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 500;
-            border: 1px solid #eaeaea;
+            border: 1px solid #e5e5e5;
         }
 
-        /* 3. PUBLICATION ROW WITH HOVER EFFECTS */
+        /* PUBLICATIONS */
         .pub-row {
             display: flex;
-            gap: 24px;
-            margin-bottom: 35px;
+            gap: 22px;
+            margin-bottom: 30px;
             align-items: flex-start;
-            padding: 10px;
-            border-radius: 8px;
-            transition: background-color 0.2s, transform 0.2s;
-            margin-left: -10px; /* Offset padding so images align left */
+            padding: 12px;
+            border-radius: 10px;
+            transition: background-color 0.2s;
+            margin-left: -12px;
         }
 
-        .pub-row:hover {
-            background-color: var(--hover-bg);
-        }
+        .pub-row:hover { background-color: var(--hover-bg); }
 
         .pub-preview {
-            width: 180px;
-            height: 110px;
+            width: 175px;
+            height: 108px;
             object-fit: cover;
             border-radius: 6px;
             border: 1px solid var(--border);
@@ -168,30 +212,120 @@
 
         .pub-row:hover .pub-preview {
             transform: scale(1.03);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.09);
         }
 
-        .pub-content { flex: 1; }
+        .pub-content { flex: 1; min-width: 0; }
 
-        .item-title { font-weight: 600; display: block; color: var(--text); margin-bottom: 4px; }
-        .item-meta { font-size: 0.9rem; color: var(--secondary); display: block; line-height: 1.4; }
-        .item-links { font-size: 0.85rem; margin-top: 8px; }
-        .item-links a { 
-            color: var(--accent); 
-            text-decoration: none; 
-            margin-right: 15px; 
+        .pub-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 4px;
+            flex-wrap: wrap;
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .venue-badge {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            margin-top: 2px;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .venue-badge.conference {
+            background: #e8f0fe;
+            color: #1a56db;
+            border: 1px solid #c3d5fb;
+        }
+
+        .venue-badge.preprint {
+            background: #f3f4f6;
+            color: #6b7280;
+            border: 1px solid #e5e7eb;
+        }
+
+        .venue-badge.workshop {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        .item-meta {
+            font-size: 0.88rem;
+            color: var(--secondary);
+            display: block;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .item-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .item-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.82rem;
             font-weight: 500;
-            transition: opacity 0.2s;
+            padding: 3px 10px;
+            border-radius: 5px;
+            border: 1px solid #c8dff7;
+            background: #f0f7ff;
+            transition: background 0.15s, border-color 0.15s;
         }
-        .item-links a:hover { opacity: 0.7; }
+
+        .item-links a:hover {
+            background: #daeeff;
+            border-color: #a8ccf0;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid #f0f0f0;
+            padding-top: 30px;
+            margin-top: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        footer p {
+            color: var(--secondary);
+            font-size: 0.8rem;
+            margin: 0;
+        }
 
         /* RESPONSIVE */
         @media (max-width: 650px) {
             header { flex-direction: column; text-align: center; gap: 20px; }
-            .pub-row { flex-direction: column; gap: 12px; margin-left: 0; padding: 0; }
-            .pub-row:hover { background-color: transparent; } /* Disable background hover on mobile */
-            .pub-preview { width: 100%; height: auto; max-width: 300px; }
+            .social-links { justify-content: center; }
+            .pub-row { flex-direction: column; gap: 12px; margin-left: 0; padding: 8px 0; }
+            .pub-row:hover { background-color: transparent; }
+            .pub-preview { width: 100%; height: auto; max-width: 280px; }
             .container { padding-top: 30px; }
+            .pub-header { flex-direction: column; gap: 6px; }
+            footer { flex-direction: column; text-align: center; }
+            .nav-name { display: none; }
         }
     </style>
 </head>
@@ -199,9 +333,14 @@
 
 <nav>
     <div class="nav-content">
-        <a href="#about">About</a>
-        <a href="#publications">Publications</a>
-        <a href="https://scholar.google.com/citations?user=3A6LKtAAAAAJ&hl=de" target="_blank">Google Scholar <i class="fas fa-external-link-alt" style="font-size: 0.7rem;"></i></a>
+        <a href="#" class="nav-name">Andreas Look</a>
+        <div class="nav-links">
+            <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#publications" class="nav-link" data-section="publications">Publications</a>
+            <a href="https://scholar.google.com/citations?user=3A6LKtAAAAAJ&hl=de" target="_blank" class="nav-link">
+                Scholar <i class="fas fa-external-link-alt" style="font-size: 0.65rem; margin-left: 2px;"></i>
+            </a>
+        </div>
     </div>
 </nav>
 
@@ -210,11 +349,10 @@
         <img src="images/v1_profile.jpg" alt="Andreas Look" onerror="this.src='https://ui-avatars.com/api/?name=Andreas+Look&size=160&background=f0f0f0'" class="profile-img">
         <div class="intro">
             <h1>Andreas Look</h1>
-            <p>Professor @ Coburg University of Applied Sciences</p>
-            
+            <p class="affiliation">Professor for Autonomous Systems · Coburg University of Applied Sciences</p>
             <div class="social-links">
                 <a href="mailto:andreas.look@hs-coburg.de" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://scholar.google.com/citations?user=3A6LKtAAAAAJ&hl=de" title="Google Scholar"><i class="fas fa-graduation-cap"></i></a>                
+                <a href="https://scholar.google.com/citations?user=3A6LKtAAAAAJ&hl=de" title="Google Scholar" target="_blank"><i class="fas fa-graduation-cap"></i></a>
             </div>
         </div>
     </header>
@@ -222,21 +360,21 @@
     <section id="about">
         <h2>About</h2>
         <p>
-            I am a <strong>Professor for Autonomous Systems</strong> at <strong>Coburg University of Applied Sciences (HS Coburg)</strong>. 
-            My research is driven by the vision of creating intelligent, safe, and scalable autonomous vehicles. 
-            I focus on the intersection of Artificial Intelligence and Robotics, specifically addressing the challenges 
+            I am a <strong>Professor for Autonomous Systems</strong> at <strong>Coburg University of Applied Sciences (HS Coburg)</strong>.
+            My research is driven by the vision of creating intelligent, safe, and scalable autonomous vehicles.
+            I focus on the intersection of Artificial Intelligence and Robotics, specifically addressing the challenges
             of operating in highly dynamic, unpredictable, and partially observable environments.
         </p>
         <p>
-            To achieve this, my work explores the frontiers of <strong>Reinforcement Learning</strong>, 
-            <strong>Trajectory Prediction</strong>, and <strong>Uncertainty Modeling</strong>. By leveraging modern machine learning techniques—from 
-            information-theoretic approaches to the integration of foundation models—my goal is to develop 
-            algorithms that don't just succeed in simulation, but can safely handle complex real-world edge cases 
+            To achieve this, my work explores the frontiers of <strong>Reinforcement Learning</strong>,
+            <strong>Trajectory Prediction</strong>, and <strong>Uncertainty Modeling</strong>. By leveraging modern machine learning techniques—from
+            information-theoretic approaches to the integration of foundation models—my goal is to develop
+            algorithms that don't just succeed in simulation, but can safely handle complex real-world edge cases
             such as heavy occlusions and stochastic human behaviors.
         </p>
         <p>
-            My academic philosophy is deeply informed by my industry background. Before joining HS Coburg, I was a Research Scientist at the <strong>Bosch Center for Artificial Intelligence (BCAI)</strong>. 
-            There, I worked on the full pipeline of applied AI, translating cutting-edge theoretical research into robust software for automotive systems. 
+            My academic philosophy is deeply informed by my industry background. Before joining HS Coburg, I was a Research Scientist at the <strong>Bosch Center for Artificial Intelligence (BCAI)</strong>.
+            There, I worked on the full pipeline of applied AI, translating cutting-edge theoretical research into robust software for automotive systems.
             This experience cemented my core belief: true algorithmic breakthroughs must be validated through <strong>real-world deployment</strong> on actual hardware.
         </p>
         <p>
@@ -245,14 +383,14 @@
     </section>
 
     <section id="interests">
-    <h2>Interests</h2>
-    <div class="tag-container">
+        <h2>Interests</h2>
+        <div class="tag-container">
             <span class="tag">Autonomous Driving</span>
-            <span class="tag">Prediction & Motion Planning</span>
+            <span class="tag">Prediction &amp; Motion Planning</span>
             <span class="tag">Uncertainty Modeling</span>
             <span class="tag">Bayesian Deep Learning</span>
             <span class="tag">Reinforcement Learning</span>
-            <span class="tag">End-to-End (E2E) Model</span>
+            <span class="tag">End-to-End (E2E) Models</span>
             <span class="tag">Robotics</span>
             <span class="tag">Real-World Deployment</span>
         </div>
@@ -260,75 +398,101 @@
 
     <section id="publications">
         <h2>Selected Publications</h2>
-        
+
         <div class="pub-row">
-            <img src="images/uncertainty_matter_v2.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=UnvertaintyPrediction'" class="pub-preview">
+            <img src="images/uncertainty_matter_v2.png" alt="Uncertainty Matters paper preview" onerror="this.src='https://via.placeholder.com/175x108?text=Uncertainty+Prediction'" class="pub-preview">
             <div class="pub-content">
-                <span class="item-title">Uncertainty Matters: Structured Probabilistic Online Mapping for Motion Prediction in Autonomous Driving</span>
-                <span class="item-meta">P. Gogoi, F. Janjos, B. Yang, <strong>A. Look</strong></span>
-                <span class="item-meta">Preprint 2026</span>
-                <div class="item-links">
-                    <a href="https://arxiv.org/abs/2603.20076"><i class="fas fa-file-pdf"></i> PDF</a>
+                <div class="pub-header">
+                    <span class="item-title">Uncertainty Matters: Structured Probabilistic Online Mapping for Motion Prediction in Autonomous Driving</span>
+                    <span class="venue-badge preprint">Preprint</span>
                 </div>
-            </div>
-        </div>
-
-
-        <div class="pub-row">
-            <img src="images/v1_occlusion.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=Prediction'" class="pub-preview">
-            <div class="pub-content">
-                <span class="item-title">Don’t double it: Efficient Agent Prediction in Occlusions</span>
-                <span class="item-meta">A. Rothenhäusler, M. Mazzola, <strong>A. Look</strong>, R. Rajan, J. Bödecker</span>
-                <span class="item-meta">Preprint 2026</span>
+                <span class="item-meta">P. Gogoi, F. Janjos, B. Yang, <strong>A. Look</strong> · 2026</span>
                 <div class="item-links">
-                    <a href="https://arxiv.org/abs/2601.21504"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2603.20076" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
         </div>
 
         <div class="pub-row">
-            <img src="images/v1_motion_stochasticity.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=Information+Theory'" class="pub-preview">
+            <img src="images/v1_occlusion.png" alt="Don't double it paper preview" onerror="this.src='https://via.placeholder.com/175x108?text=Prediction'" class="pub-preview">
             <div class="pub-content">
-                <span class="item-title">Stochasticity in Motion: An Information-Theoretic Approach to Trajectory Prediction</span>
+                <div class="pub-header">
+                    <span class="item-title">Don't double it: Efficient Agent Prediction in Occlusions</span>
+                    <span class="venue-badge preprint">Preprint</span>
+                </div>
+                <span class="item-meta">A. Rothenhäusler, M. Mazzola, <strong>A. Look</strong>, R. Rajan, J. Bödecker · 2026</span>
+                <div class="item-links">
+                    <a href="https://arxiv.org/abs/2601.21504" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pub-row">
+            <img src="images/v1_motion_stochasticity.png" alt="Stochasticity in Motion paper preview" onerror="this.src='https://via.placeholder.com/175x108?text=Information+Theory'" class="pub-preview">
+            <div class="pub-content">
+                <div class="pub-header">
+                    <span class="item-title">Stochasticity in Motion: An Information-Theoretic Approach to Trajectory Prediction</span>
+                    <span class="venue-badge conference">IROS 2025</span>
+                </div>
                 <span class="item-meta">A. Distelzweig, <strong>A. Look</strong>, E. Kosman, F. Janjoš, J. Wagner, A. Valada</span>
-                <span class="item-meta">IROS 2025</span>
                 <div class="item-links">
-                    <a href="https://arxiv.org/abs/2410.016284"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2410.016284" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
         </div>
 
         <div class="pub-row">
-            <img src="images/v1_motion_risk.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=Motion+Forecasting'" class="pub-preview">
+            <img src="images/v1_motion_risk.png" alt="Motion Forecasting paper preview" onerror="this.src='https://via.placeholder.com/175x108?text=Motion+Forecasting'" class="pub-preview">
             <div class="pub-content">
-                <span class="item-title">Motion Forecasting via Model-Based Risk Minimization</span>
+                <div class="pub-header">
+                    <span class="item-title">Motion Forecasting via Model-Based Risk Minimization</span>
+                    <span class="venue-badge conference">ICRA 2025</span>
+                </div>
                 <span class="item-meta">A. Distelzweig, E. Kosman, <strong>A. Look</strong>, F. Janjoš, D. K. Manivannan, A. Valada</span>
-                <span class="item-meta">ICRA 2025</span>
                 <div class="item-links">
-                    <a href="https://arxiv.org/abs/2409.10585"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2409.10585" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
         </div>
 
         <div class="pub-row">
-            <img src="images/v1_can_you_text.png" alt="Paper preview" onerror="this.src='https://via.placeholder.com/180x110?text=LLM+in+AD'" class="pub-preview">
+            <img src="images/v1_can_you_text.png" alt="Can you text paper preview" onerror="this.src='https://via.placeholder.com/175x108?text=LLM+in+AD'" class="pub-preview">
             <div class="pub-content">
-                <span class="item-title">Can you text what is happening? Integrating pre-trained language encoders into trajectory prediction models</span>
+                <div class="pub-header">
+                    <span class="item-title">Can you text what is happening? Integrating pre-trained language encoders into trajectory prediction models</span>
+                    <span class="venue-badge workshop">IROS Workshop</span>
+                </div>
                 <span class="item-meta">A. Keysan, <strong>A. Look</strong>, E. Kosman, G. Gürsun, J. Wagner, Y. Yao, B. Rakitsch</span>
-                <span class="item-meta">IROS Agents4AD Workshop</span>
                 <div class="item-links">
-                    <a href="https://arxiv.org/abs/2309.05282"><i class="fas fa-file-pdf"></i> PDF</a>
+                    <a href="https://arxiv.org/abs/2309.05282" target="_blank"><i class="fas fa-file-pdf"></i> PDF</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p style="text-align: center; color: var(--secondary); font-size: 0.8rem; margin-top: 100px;">
-            &copy; 2026 Andreas Look. Last updated: March 2026.
-        </p>
+        <p>&copy; 2026 Andreas Look</p>
+        <p>Last updated: April 2026</p>
     </footer>
 </div>
+
+<script>
+    // Active nav section highlighting
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[data-section]');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.dataset.section === entry.target.id);
+                });
+            }
+        });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(section => observer.observe(section));
+</script>
 
 </body>
 </html>
