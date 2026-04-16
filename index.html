@@ -155,6 +155,24 @@
 
         .social-links a:hover { color: var(--accent); }
 
+        .social-links a.lab-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: #f0f7ff;
+            border: 1px solid #c8dff7;
+            padding: 5px 12px;
+            border-radius: 6px;
+            gap: 6px;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+
+        .social-links a.lab-link:hover {
+            background: #daeeff;
+            border-color: #a8ccf0;
+            color: #004fa3;
+        }
+
         /* SECTIONS */
         section { margin-bottom: 60px; scroll-margin-top: 70px; }
 
@@ -340,6 +358,9 @@
             <a href="https://scholar.google.com/citations?user=3A6LKtAAAAAJ&hl=de" target="_blank" class="nav-link">
                 Scholar <i class="fas fa-external-link-alt" style="font-size: 0.65rem; margin-left: 2px;"></i>
             </a>
+            <a href="https://coburg-as-lab.github.io/" target="_blank" class="nav-link" style="color: var(--accent); font-weight: 600;">
+                Lab <i class="fas fa-external-link-alt" style="font-size: 0.65rem; margin-left: 2px;"></i>
+            </a>
         </div>
     </div>
 </nav>
@@ -353,6 +374,7 @@
             <div class="social-links">
                 <a href="mailto:andreas.look@hs-coburg.de" title="Email"><i class="fas fa-envelope"></i></a>
                 <a href="https://scholar.google.com/citations?user=3A6LKtAAAAAJ&hl=de" title="Google Scholar" target="_blank"><i class="fas fa-graduation-cap"></i></a>
+                <a href="https://coburg-as-lab.github.io/" title="AS Lab" target="_blank" class="lab-link"><i class="fas fa-flask"></i> AS Lab</a>
             </div>
         </div>
     </header>
